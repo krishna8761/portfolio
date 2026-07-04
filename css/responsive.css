@@ -15,17 +15,24 @@
    GLOBAL (all breakpoints)
    ===================================================================== */
 
-/* Two stray white dots = the JS-injected custom cursor (.mk-cur-dot +
-   .mk-cur-ring, added to <head> at runtime). With no mouse on touch devices
-   they park at 0,0 and read as floating dots. Hide both everywhere and
-   restore the normal cursor (main.js also sets body{cursor:none}).
-   !important is required because the JS <style> is injected after this file. */
-.mk-cur-dot,
-.mk-cur-ring {
-  display: none !important;
-}
-body {
-  cursor: auto !important;
+/* Custom cursor (.mk-cur-dot + .mk-cur-ring, injected by main.js's
+   initCursor()) is the intended desktop effect — a dot that follows the
+   pointer plus a lagging ring that expands/inverts over links, buttons,
+   service rows and FAQ questions, and shows a "VIEW ↗" label over project
+   cards. main.js already gates its creation to real desktop pointers
+   (FULL = !isMobile && !isTouch && !reduceMotion), but on genuine touch
+   devices without a live pointer it would otherwise sit statically at
+   0,0 and read as two floating dots. Scope the hide to touch/coarse
+   pointers only so desktop keeps the effect. !important is required
+   because the JS <style> is injected after this file. */
+@media (hover: none), (pointer: coarse) {
+  .mk-cur-dot,
+  .mk-cur-ring {
+    display: none !important;
+  }
+  body {
+    cursor: auto !important;
+  }
 }
 
 /* Nav: force a clean flex row (logo | links | hamburger) at every
