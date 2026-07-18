@@ -411,7 +411,7 @@
       willChange(title, "transform");
       var finalNum = num ? num.textContent.trim() : "";
 
-      var tl = gsap.timeline({ scrollTrigger: { trigger: row, start: "top 80%" } });
+      var tl = gsap.timeline({ scrollTrigger: { trigger: row, start: "top 80%", toggleActions: "restart none restart reset" } });
       if (title) {
         tl.fromTo(title,
           { clipPath: "inset(0 100% 0 0)" },

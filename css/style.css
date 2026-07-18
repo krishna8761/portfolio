@@ -4473,3 +4473,89 @@ html { overflow-x: clip; }              /* horizontal clamp that is sticky/pin-s
   .nav-bar { column-gap: 10px; }
   .link-3, .link-4, .link-5, .link-6 { font-size: 12px; }
 }
+
+/* ===================================================================
+   ABOUT — single long statement (Inter), centered, word-reveal target
+   =================================================================== */
+.about-statement {
+  font-family: "Inter", Lato, sans-serif;
+  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 42px);
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: #fff;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .about-statement { font-size: 22px; line-height: 1.4; text-align: left; }
+}
+
+/* ===================================================================
+   PROJECTS — two-column stacked-panel showcase (roshan-sahu style)
+   Left: coloured plates with framed screenshots that stack on scroll.
+   Right: sticky meta column, swapped per active project by JS.
+   =================================================================== */
+#projects { background: #000; padding: 110px 60px 130px; }
+
+.pj-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+.pj-head .heading-4 { margin: 0; }
+.pj-head .heading-5 { margin: 0; align-self: flex-start; }
+
+.pj { display: flex; align-items: flex-start; gap: 48px; }
+
+.pj-stage { flex: 1 1 62%; min-width: 0; display: flex; flex-direction: column; }
+
+.pj-panel { position: sticky; top: 12vh; margin-bottom: 14vh; will-change: transform; }
+.pj-panel:last-child { margin-bottom: 0; }
+
+.pj-plate { background: transparent; padding: 0; }
+.pj-frame { position: relative; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: #111; border: 1px solid rgba(255,255,255,.09); }
+.pj-shot { position: absolute; left: 0; top: -7%; width: 100%; height: 114%; object-fit: cover; display: block; }
+
+.pj-cap { display: none; }
+
+/* right meta column */
+.pj-meta { flex: 0 0 30%; position: sticky; top: 24vh; align-self: flex-start; }
+.pj-meta-inner { will-change: transform, opacity; }
+.pj-num {
+  font-family: "Space Mono", monospace; font-size: 13px; letter-spacing: .1em;
+  color: #fff; opacity: .5; margin-bottom: 18px;
+}
+.pj-title {
+  font-family: "Inter", "Syne", sans-serif; font-weight: 600;
+  font-size: clamp(30px, 3.4vw, 60px); line-height: 1; letter-spacing: -0.02em;
+  text-transform: uppercase; color: #fff; margin: 0 0 22px;
+}
+.pj-open {
+  font-family: "Space Mono", monospace; font-size: 12px; letter-spacing: .08em;
+  vertical-align: super; opacity: .55;
+}
+.pj-cat, .pj-loc {
+  font-family: "Space Mono", monospace; font-size: 13px; letter-spacing: .08em;
+  text-transform: uppercase; color: #fff; opacity: .7; line-height: 1.7;
+}
+.pj-year {
+  font-family: "Space Mono", monospace; font-size: 13px; letter-spacing: .08em;
+  color: #fff; opacity: .4; margin-top: 16px;
+}
+
+/* mobile / tablet: single column, static panels with their own captions */
+@media screen and (max-width: 991px) {
+  #projects { padding: 70px 20px 90px; }
+  .pj { flex-direction: column; gap: 0; }
+  .pj-meta { display: none; }
+  .pj-panel { position: static; margin-bottom: 56px; }
+  .pj-plate { padding: 0; }
+  .pj-cap { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+  .pj-cap-num { font-family: "Space Mono", monospace; font-size: 12px; color: #fff; opacity: .5; }
+  .pj-cap-title { font-family: "Inter", sans-serif; font-weight: 600; font-size: 24px; text-transform: uppercase; color: #fff; }
+  .pj-cap-meta { font-family: "Space Mono", monospace; font-size: 12px; text-transform: uppercase; color: #fff; opacity: .6; }
+}
