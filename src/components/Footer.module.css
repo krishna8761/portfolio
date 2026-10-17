@@ -1,0 +1,90 @@
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.next {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: clamp(80px, 12vw, 180px);
+  padding-bottom: clamp(48px, 7vw, 96px);
+  border-bottom: 1px solid var(--line);
+}
+
+.next .nextTitle {
+  font-size: min(var(--t-mega), 12vw); /* "Engagements" must fit a 375px phone */
+}
+
+.nextTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2em;
+  transition: color 0.5s var(--ease-out);
+}
+
+.nextArrow {
+  font-weight: 300;
+  font-size: 0.6em;
+}
+
+.next:hover .nextTitle {
+  color: var(--signal);
+}
+
+.next:hover .nextArrow {
+  transform: translateX(12px);
+}
+
+.base {
+  padding-block: 40px 28px;
+  row-gap: 36px;
+}
+
+.col {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.col:first-child {
+  grid-column: 1 / -1;
+}
+
+.statement {
+  font-family: var(--f-sans);
+  font-size: var(--t-body);
+  text-transform: none;
+  letter-spacing: 0;
+  max-width: 32ch;
+}
+
+.legal {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .col:first-child {
+    grid-column: 1 / span 4;
+  }
+  .col {
+    grid-column: span 2;
+  }
+  .col:nth-child(2) {
+    grid-column: 7 / span 2;
+  }
+  .base {
+    row-gap: 72px;
+  }
+}
+
+.email {
+  text-transform: none;
+}

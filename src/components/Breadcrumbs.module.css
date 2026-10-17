@@ -1,0 +1,16 @@
+.crumbs {
+  margin-bottom: clamp(24px, 4vw, 48px);
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
+  list-style: none;
+}
+
+.crumbs li + li::before {
+  content: "/";
+  margin-right: 10px;
+  color: var(--fg-2);
+}

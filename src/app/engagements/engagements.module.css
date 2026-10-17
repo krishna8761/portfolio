@@ -1,0 +1,167 @@
+.top {
+  padding-top: calc(var(--header-h) + clamp(48px, 10vw, 160px));
+  padding-bottom: clamp(72px, 10vw, 160px);
+}
+
+.title {
+  max-width: 13ch;
+}
+
+.intro {
+  max-width: 36ch;
+  margin-top: clamp(32px, 5vw, 64px);
+}
+
+@media (min-width: 900px) {
+  .intro {
+    margin-left: calc(50% + var(--gutter) / 2);
+  }
+}
+
+.row {
+  row-gap: 16px;
+  padding-bottom: clamp(48px, 7vw, 104px);
+}
+
+.rule {
+  grid-column: 1 / -1;
+  margin-bottom: 16px;
+}
+
+.n,
+.name,
+.price,
+.body {
+  grid-column: 1 / -1;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+}
+
+.body {
+  margin-top: 12px;
+}
+
+.includes {
+  list-style: none;
+  margin-top: 24px;
+}
+
+.includes li {
+  padding-block: 10px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .n {
+    grid-column: 1;
+  }
+  .name {
+    grid-column: 2 / span 3;
+  }
+  .price {
+    grid-column: 5 / span 3;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .body {
+    grid-column: 9 / span 4;
+    margin-top: 0.5em;
+  }
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .cta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Terms */
+.terms {
+  row-gap: 32px;
+}
+
+.termsLabel,
+.faq {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .termsLabel {
+    grid-column: 1 / span 3;
+  }
+  .faq {
+    grid-column: 5 / span 8;
+  }
+}
+
+.item {
+  border-top: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.q {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 64px;
+  padding-block: 18px;
+  cursor: pointer;
+}
+
+.q::-webkit-details-marker {
+  display: none;
+}
+
+.plus {
+  position: relative;
+  flex: 0 0 14px;
+  height: 14px;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.item[open] .plus::after {
+  transform: rotate(0deg);
+}
+
+.a {
+  padding-bottom: 28px;
+}

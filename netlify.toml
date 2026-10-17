@@ -1,0 +1,13 @@
+# Overrides the build settings in the Netlify UI, so every deploy is built the same way.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Run the Next.js runtime (server pages, API routes, image optimisation, redirects).
+# Without this, a site first created as static uploads .next as plain files and every URL 404s.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

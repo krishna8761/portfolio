@@ -1,0 +1,24 @@
+.page {
+  padding-top: calc(var(--header-h) + 18vh);
+  padding-bottom: var(--space-section);
+}
+
+.title {
+  margin-top: 24px;
+}
+
+.copy {
+  margin-top: 32px;
+  max-width: 34ch;
+}
+
+.links {
+  list-style: none;
+  margin-top: 40px;
+  max-width: 520px;
+}
+
+.links li {
+  padding-block: 12px;
+  border-top: 1px solid var(--line);
+}

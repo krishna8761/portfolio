@@ -1,0 +1,144 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--header-h);
+  color: var(--fg);
+  background: var(--bg);
+  transition: transform 0.7s var(--ease-out), background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
+}
+
+.header[data-hidden="true"] {
+  transform: translateY(-100%);
+}
+
+.row {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: var(--gutter);
+  padding-inline: var(--margin);
+  border-bottom: 1px solid var(--line);
+}
+
+.mark {
+  font-family: var(--f-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  justify-self: start;
+}
+
+.markDot {
+  font-size: 0.55em;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.row .chapter,
+.row .nav,
+.row .clock,
+.row .cta {
+  display: none;
+}
+
+.burger {
+  min-height: 44px;
+  padding-inline: 4px;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.live {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@media (min-width: 1024px) {
+  .row {
+    display: flex;
+    gap: clamp(20px, 2.4vw, 40px);
+  }
+  .row .chapter {
+    display: block;
+    flex: 1;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+  .row .nav {
+    display: flex;
+    gap: clamp(16px, 1.6vw, 24px);
+  }
+  .row .clock {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 0.5em;
+  }
+  .row .cta {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+  .burger {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .row .chapter {
+    visibility: hidden;
+  }
+}
+
+/* ─── Mobile overlay ─── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--header-h) + 40px) var(--margin) 32px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuMask {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+
+.menuItem {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 14px;
+}
+
+.menuFoot {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (min-width: 1024px) {
+  .overlay {
+    display: none;
+  }
+}

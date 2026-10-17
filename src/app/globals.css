@@ -1,0 +1,357 @@
+/* ─────────────── Tokens ─────────────── */
+:root {
+  --paper: #ede9e1;
+  --paper-2: #e3ded4;
+  --ink: #141413;
+  --ink-2: #5e5b55;
+  --rule: rgba(20, 20, 19, 0.16);
+  --signal: #c2410c;
+
+  --fg: var(--ink);
+  --fg-2: var(--ink-2);
+  --bg: var(--paper);
+  --line: var(--rule);
+
+  --f-sans: var(--font-host), "Helvetica Neue", Arial, sans-serif;
+  --f-mono: var(--font-mono), ui-monospace, Menlo, monospace;
+  --f-serif: var(--font-serif), Georgia, serif;
+
+  /* fluid type: 375px → 1600px */
+  --t-mega: clamp(3.25rem, 0.6rem + 12.54vw, 13.5rem);
+  --t-display: clamp(2.5rem, 1.1rem + 5.98vw, 7rem);
+  --t-h2: clamp(1.75rem, 1.21rem + 2.29vw, 3.5rem);
+  --t-h3: clamp(1.25rem, 1.1rem + 0.65vw, 1.75rem);
+  --t-body-l: clamp(1.125rem, 1.05rem + 0.33vw, 1.375rem);
+  --t-body: clamp(0.9375rem, 0.92rem + 0.08vw, 1rem);
+  --t-meta: clamp(0.6875rem, 0.67rem + 0.08vw, 0.75rem);
+
+  --margin: clamp(16px, 3vw, 40px);
+  --gutter: clamp(16px, 1.6vw, 24px);
+  --space-section: clamp(96px, 14vw, 216px);
+  --header-h: 56px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─────────────── Base ─────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--paper);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--f-sans);
+  font-size: var(--t-body);
+  line-height: 1.55;
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: clip;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+/* ─────────────── Surfaces ─────────────── */
+.dark {
+  --fg: var(--paper);
+  --fg-2: #9c978d;
+  --bg: var(--ink);
+  --line: rgba(237, 233, 225, 0.16);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* ─────────────── Layout ─────────────── */
+.wrap {
+  padding-inline: var(--margin);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  transform-origin: left center;
+}
+
+/* ─────────────── Type ─────────────── */
+.t-mega,
+.t-display,
+.t-h2,
+.t-h3 {
+  font-weight: 500;
+  font-variation-settings: normal;
+}
+
+.t-mega {
+  font-size: var(--t-mega);
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.t-display {
+  font-size: var(--t-display);
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.t-h2 {
+  font-size: var(--t-h2);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-weight: 450;
+}
+
+.t-h3 {
+  font-size: var(--t-h3);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.t-lead {
+  font-size: var(--t-body-l);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.t-meta {
+  font-family: var(--f-mono);
+  font-size: var(--t-meta);
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-serif {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.muted {
+  color: var(--fg-2);
+}
+
+.measure {
+  max-width: 62ch;
+}
+
+/* Section label: (02) — Selected work */
+.label {
+  display: flex;
+  gap: 0.75em;
+  color: var(--fg-2);
+}
+
+/* ─────────────── Links & buttons ─────────────── */
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.link:hover::after,
+.link[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.link--static::after {
+  transform: scaleX(1);
+}
+.link--static:hover::after {
+  transform: scaleX(0);
+  transform-origin: right center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5em;
+  min-height: 52px;
+  padding: 0 20px;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--f-mono);
+  font-size: var(--t-meta);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.4s var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--signal);
+  color: var(--paper);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.5s var(--ease-out);
+}
+
+a:hover .arrow,
+button:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ─────────────── Media ─────────────── */
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.dark .media {
+  background: #1f1e1c;
+}
+
+.media img,
+.media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ─────────────── Motion guards ─────────────── */
+/* Reveal targets start hidden only once JS confirms it will animate them. */
+html.js-motion [data-fade],
+html.js-motion [data-lines] {
+  visibility: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ─────────────── Mobile CTA ─────────────── */
+.mobile-cta {
+  position: fixed;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 30;
+  transform: translateY(calc(100% + 24px));
+  transition: transform 0.6s var(--ease-out), background-color 0.4s var(--ease-out);
+}
+
+.mobile-cta[data-shown="true"] {
+  transform: none;
+}
+
+@media (min-width: 1024px) {
+  .mobile-cta {
+    display: none;
+  }
+}
+
+/* SplitText line masks: give descenders room so tight leading never clips g/y/p */
+.line-mask {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* ─────────────── Low-power mode (html.lp, set before paint) ─────────────── */
+html.lp *,
+html.lp *::before,
+html.lp *::after {
+  animation-iteration-count: 1 !important; /* looping decorations stop after one pass */
+}
+
+html.lp .mobile-cta,
+html.lp .link::after {
+  transition-duration: 0.2s;
+}

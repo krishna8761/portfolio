@@ -1,0 +1,34 @@
+/* A phone screenshot shown at phone proportions, standing on a paper surface */
+.stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.phone {
+  position: relative;
+  width: min(54%, 300px);
+  aspect-ratio: 390 / 844;
+  transform: translateY(14%); /* bleeds off the bottom edge, like a device set into the frame */
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  outline: 1px solid rgba(20, 20, 19, 0.1);
+}
+
+.phone img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.desk {
+  position: absolute;
+  inset: 0;
+}
+
+.desk img {
+  object-position: top center;
+}

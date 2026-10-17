@@ -1,0 +1,125 @@
+.flow {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(16px, 6cqmin, 40px);
+  overflow: hidden;
+}
+
+.head,
+.foot {
+  display: flex;
+  justify-content: space-between;
+  color: var(--fg-2);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+.steps {
+  list-style: none;
+  margin-block: auto;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 2.4em 1fr auto;
+  align-items: center;
+  gap: 0.8em;
+  padding-block: clamp(4px, 2cqh, 16px);
+  border-top: 1px solid var(--line);
+  font-size: clamp(14px, 4.6cqmin, 30px);
+  letter-spacing: -0.02em;
+  color: var(--fg-2);
+  animation: lit var(--cycle) linear infinite;
+  animation-delay: calc(var(--i) * var(--cycle) / var(--n));
+}
+
+.step:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.n {
+  color: inherit;
+}
+
+.tick {
+  width: 0.45em;
+  height: 0.45em;
+  background: currentColor;
+  opacity: 0;
+  animation: tick var(--cycle) linear infinite;
+  animation-delay: inherit;
+}
+
+.large .step {
+  font-size: clamp(16px, 3.6cqmin, 40px);
+}
+
+@keyframes lit {
+  0%,
+  100% {
+    color: var(--fg-2);
+  }
+  2%,
+  14% {
+    color: var(--fg);
+  }
+  22% {
+    color: var(--fg-2);
+  }
+}
+
+@keyframes tick {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  2%,
+  14% {
+    opacity: 1;
+    background: var(--signal);
+  }
+  22% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step,
+  .tick,
+  .live i {
+    animation: none;
+  }
+}
+
+/* Short frames: drop the footer label and tighten the rows */
+@container (max-height: 360px) {
+  .foot {
+    display: none;
+  }
+  .step {
+    padding-block: clamp(3px, 1.4cqh, 10px);
+    font-size: clamp(12px, 4cqmin, 22px);
+  }
+}
