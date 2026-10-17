@@ -1,0 +1,159 @@
+.top {
+  padding-top: calc(var(--header-h) + clamp(48px, 10vw, 160px));
+  padding-bottom: clamp(72px, 10vw, 160px);
+}
+
+.title {
+  max-width: 13ch;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: clamp(48px, 7vw, 112px);
+}
+
+.ov {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: var(--gutter);
+  padding-block: 12px;
+  border-top: 1px solid var(--line);
+  transition: color 0.4s var(--ease-out);
+}
+
+.ov:hover {
+  color: var(--signal);
+}
+
+@media (min-width: 900px) {
+  .overview {
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: var(--gutter);
+  }
+  .ov {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* Stages */
+.stages {
+  align-items: start;
+}
+
+.pinCol {
+  display: none;
+}
+
+.list {
+  grid-column: 1 / -1;
+  list-style: none;
+}
+
+.stage {
+  padding-bottom: clamp(64px, 9vw, 140px);
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
+.stageHead {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: baseline;
+  column-gap: var(--gutter);
+  row-gap: 8px;
+  padding-top: 20px;
+}
+
+.stageHead > :last-child {
+  grid-column: 2;
+}
+
+.happens {
+  max-width: 38ch;
+  margin-top: 28px;
+}
+
+.detail {
+  display: grid;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.detail dt {
+  margin-bottom: 10px;
+}
+
+.detail ul {
+  list-style: none;
+}
+
+.detail li {
+  padding-block: 8px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 1024px) {
+  .pinCol {
+    display: block;
+    grid-column: 1 / span 4;
+    align-self: stretch;
+  }
+  .pinned {
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+    padding-top: 20px;
+  }
+  .pinned .digits {
+    position: relative;
+    overflow: hidden;
+    height: 0.9em;
+    font-size: clamp(8rem, 16vw, 15rem);
+  }
+  .digit {
+    position: absolute;
+    inset: 0;
+    line-height: 0.86;
+  }
+  .list {
+    grid-column: 5 / span 8;
+  }
+  .mobileN {
+    visibility: hidden;
+  }
+  .stageHead {
+    grid-template-columns: 1fr auto;
+  }
+  .stageHead > .mobileN {
+    display: none;
+  }
+  .stageHead > :last-child {
+    grid-column: auto;
+  }
+  .detail {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--gutter);
+  }
+}
+
+/* When motion is reduced on desktop, show only the first digit statically */
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .digit:not(:first-child) {
+    display: none;
+  }
+}
+
+.note {
+  padding-bottom: var(--space-section);
+}
+
+.noteText {
+  grid-column: 1 / -1;
+  max-width: 22ch;
+}
+
+@media (min-width: 900px) {
+  .noteText {
+    grid-column: 5 / span 8;
+  }
+}

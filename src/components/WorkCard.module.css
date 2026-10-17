@@ -1,0 +1,79 @@
+.card {
+  display: block;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+}
+
+.frame video {
+  object-position: top center;
+}
+
+.frame img,
+.frame video {
+  transition: transform 1.2s var(--ease-out), filter 1.2s var(--ease-out);
+}
+
+.portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.tall {
+  aspect-ratio: 3 / 4;
+}
+
+.landscape {
+  aspect-ratio: 16 / 10;
+}
+
+/* System diagrams need height for their steps on narrow screens */
+@media (max-width: 899px) {
+  .frame[data-kind="flow"] {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.caption {
+  margin-top: 12px;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 7px;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  font-weight: 500;
+}
+
+.go {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .card:hover .go {
+    opacity: 1;
+    transform: none;
+  }
+  .card:hover .frame img {
+    filter: saturate(1.08) contrast(1.03);
+  }
+}
+
+@media (hover: none) {
+  .go {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.kind {
+  flex: 0 0 auto;
+}

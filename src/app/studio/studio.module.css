@@ -1,0 +1,144 @@
+.top {
+  padding-top: calc(var(--header-h) + clamp(48px, 10vw, 160px));
+  padding-bottom: clamp(72px, 10vw, 160px);
+}
+
+.title {
+  max-width: 12ch;
+}
+
+.intro {
+  margin-top: clamp(32px, 5vw, 64px);
+}
+
+.lead {
+  grid-column: 1 / -1;
+  max-width: 40ch;
+}
+
+@media (min-width: 900px) {
+  .lead {
+    grid-column: 7 / span 5;
+  }
+}
+
+.principles {
+  list-style: none;
+  margin-top: 32px;
+  row-gap: 0;
+}
+
+.principle {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding-block: 24px 40px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .principle {
+    grid-column: span 3;
+  }
+}
+
+/* Founder */
+.founder {
+  row-gap: 40px;
+  align-items: end;
+}
+
+.portrait {
+  position: relative;
+  grid-column: 1 / -1;
+  aspect-ratio: 1;
+}
+
+.portrait img {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.bio {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name {
+  margin-top: 20px;
+}
+
+.bioText {
+  margin-top: 16px;
+}
+
+@media (min-width: 900px) {
+  .portrait {
+    grid-column: 1 / span 4;
+  }
+  .bio {
+    grid-column: 7 / span 5;
+  }
+}
+
+/* Hours */
+.clocks {
+  margin-top: clamp(32px, 5vw, 64px);
+  row-gap: 40px;
+}
+
+.clock {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 900px) {
+  .clock {
+    grid-column: span 6;
+  }
+}
+
+.hoursNote {
+  max-width: 40ch;
+  margin-top: clamp(40px, 5vw, 72px);
+}
+
+/* Lab */
+.labHead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 900px) {
+  .labHead {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+.labGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gutter);
+}
+
+@media (min-width: 900px) {
+  .labGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.labItem {
+  position: relative;
+  aspect-ratio: 3 / 4;
+}

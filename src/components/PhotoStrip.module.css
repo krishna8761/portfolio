@@ -1,0 +1,49 @@
+.strip {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.1vw, 20px);
+  width: max-content;
+  will-change: transform; /* own compositor layer: the drift never repaints the page */
+  padding-inline: clamp(7px, 0.55vw, 10px);
+}
+
+.item {
+  flex: 0 0 auto;
+  width: clamp(168px, 14.6vw, 290px);
+  display: block;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+}
+
+.frame img {
+  transition: transform 1.2s var(--ease-out);
+}
+
+@media (hover: hover) {
+  a.item:hover .frame img {
+    transform: scale(1.04);
+  }
+}
+
+.cap {
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Reduced motion: a swipeable row instead of a drifting one */
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
