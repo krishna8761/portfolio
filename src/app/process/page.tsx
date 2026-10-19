@@ -36,7 +36,7 @@ export default function Process() {
 
       <section className={`${s.note} wrap grid`}>
         <p className={`${s.noteText} t-h2`} data-lines>
-          You can stop after any stage. Everything delivered up to that point is yours to keep.
+          You can stop after any stage. Everything you&apos;ve paid for up to that point is yours to keep.
         </p>
       </section>
       <Motion />

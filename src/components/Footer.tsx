@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { nav, studio, nextChapterFor } from "@/content/site";
+import { nav, studio, nextChapterFor, legalLinks } from "@/content/site";
 import Clock from "./Clock";
 import s from "./Footer.module.css";
 
@@ -63,7 +63,14 @@ export default function Footer() {
 
         <div className={`${s.legal} muted`}>
           <span>© {studio.founded} Monark Studio</span>
-          <span>Fees quoted in USD</span>
+          <span className={s.legalLinks}>
+            {legalLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="link">
+                {l.label}
+              </Link>
+            ))}
+            <span>Fees in USD</span>
+          </span>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { booking, brief, studio } from "@/content/site";
 import { gsap } from "@/lib/gsap";
@@ -276,6 +277,10 @@ export default function Brief() {
                 <span className="t-meta muted">Anything we should know before the call? (optional)</span>
                 <textarea rows={3} value={data.notes} onChange={(e) => set("notes", e.target.value)} />
               </label>
+              <p className={`${s.consent} t-meta muted`}>
+                By booking, you agree to our <Link href="/terms">Terms</Link> and acknowledge our{" "}
+                <Link href="/privacy">Privacy Policy</Link>.
+              </p>
               <label className={s.hp} aria-hidden>
                 Website
                 <input tabIndex={-1} autoComplete="off" value={data.website} onChange={(e) => set("website", e.target.value)} />

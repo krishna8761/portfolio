@@ -50,14 +50,25 @@ export const nav = [
   { href: "/studio", label: "Studio" },
 ];
 
+/** Date shown at the top of the Privacy Policy and Terms. Update it whenever either page changes. */
+export const LEGAL_UPDATED = "19 October 2026";
+
+export const legalLinks = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+];
+
+const isLegal = (pathname: string) => legalLinks.some((l) => l.href === pathname);
+
 export function chapterFor(pathname: string) {
   if (pathname.startsWith("/work/")) return chapters[1];
   if (pathname === "/studio") return { href: "/studio", n: "—", title: "Studio" };
+  if (isLegal(pathname)) return { href: pathname, n: "—", title: "Legal" };
   return chapters.find((c) => c.href === pathname) ?? chapters[0];
 }
 
 export function nextChapterFor(pathname: string): Chapter | null {
-  if (pathname === "/contact") return null;
+  if (pathname === "/contact" || isLegal(pathname)) return null; // policy pages end the path; no "next chapter"
   if (pathname === "/studio") return chapters[5];
   if (pathname.startsWith("/work/")) return chapters[2];
   const i = chapters.findIndex((c) => c.href === pathname);
@@ -454,7 +465,7 @@ export const engagements = [
 
 export const terms = [
   { q: "How do payments work?", a: "Diagnostic is paid upfront. Builds are 50% to start and 50% at launch. Partnerships are billed monthly in advance. We invoice in USD." },
-  { q: "Who owns the work?", a: "You do. Code, accounts, designs and data are handed over in your name at launch." },
+  { q: "Who owns the work?", a: "You do. Code, accounts, designs and data are handed over in your name at launch, once the final payment is made." },
   { q: "Do you work outside India?", a: "Most of our work is remote. We overlap at least four hours with UK, EU and Gulf time zones, and schedule calls for the US." },
   { q: "What if we already have a team?", a: "Good. We plug into your tools and hand over to your people, and we can train the team that takes it forward." },
   { q: "What if the Diagnostic finds nothing worth building?", a: "Then we tell you, and you keep the report. Knowing what not to build is still worth $750." },
