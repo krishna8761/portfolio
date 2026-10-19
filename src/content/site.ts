@@ -465,7 +465,7 @@ export const engagements = [
 
 export const terms = [
   { q: "How do payments work?", a: "Diagnostic is paid upfront. Builds are 50% to start and 50% at launch. Partnerships are billed monthly in advance. We invoice in USD." },
-  { q: "Who owns the work?", a: "You do. Code, accounts, designs and data are handed over in your name at launch." },
+  { q: "Who owns the work?", a: "You do. Code, accounts, designs and data are handed over in your name at launch, once the final payment is made." },
   { q: "Do you work outside India?", a: "Most of our work is remote. We overlap at least four hours with UK, EU and Gulf time zones, and schedule calls for the US." },
   { q: "What if we already have a team?", a: "Good. We plug into your tools and hand over to your people, and we can train the team that takes it forward." },
   { q: "What if the Diagnostic finds nothing worth building?", a: "Then we tell you, and you keep the report. Knowing what not to build is still worth $750." },

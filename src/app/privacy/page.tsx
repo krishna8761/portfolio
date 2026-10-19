@@ -118,12 +118,12 @@ const sections: LegalSection[] = [
             <strong>Netlify</strong> hosts the website and receives the standard request data described above.
           </li>
           <li>
-            <strong>Upstash</strong> provides the database that holds your booking while the call is pending, so that no
-            one else can book the same time.
+            <strong>Upstash</strong> provides the database that holds your booking record for 30 days, so that no one
+            else can book the same time.
           </li>
           <li>
-            <strong>Google</strong> (Gmail and Google Calendar) sends your confirmation and invite, and holds the emails
-            we send and receive.
+            <strong>Google</strong> (Gmail) sends your confirmation email, with the calendar invite attached, and holds the
+            emails we send and receive.
           </li>
         </ul>
         <p>

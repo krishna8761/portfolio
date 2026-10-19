@@ -88,7 +88,7 @@ export default function Header() {
           </Link>
 
           <span className={s.chapter} aria-hidden>
-            {chapter.n} / 05 — {chapter.title}
+            {chapter.n === "—" ? chapter.title : `${chapter.n} / 05 — ${chapter.title}`}
           </span>
 
           <nav className={s.nav} aria-label="Primary">
