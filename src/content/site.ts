@@ -50,14 +50,25 @@ export const nav = [
   { href: "/studio", label: "Studio" },
 ];
 
+/** Date shown at the top of the Privacy Policy and Terms. Update it whenever either page changes. */
+export const LEGAL_UPDATED = "19 October 2026";
+
+export const legalLinks = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+];
+
+const isLegal = (pathname: string) => legalLinks.some((l) => l.href === pathname);
+
 export function chapterFor(pathname: string) {
   if (pathname.startsWith("/work/")) return chapters[1];
   if (pathname === "/studio") return { href: "/studio", n: "—", title: "Studio" };
+  if (isLegal(pathname)) return { href: pathname, n: "—", title: "Legal" };
   return chapters.find((c) => c.href === pathname) ?? chapters[0];
 }
 
 export function nextChapterFor(pathname: string): Chapter | null {
-  if (pathname === "/contact") return null;
+  if (pathname === "/contact" || isLegal(pathname)) return null; // policy pages end the path; no "next chapter"
   if (pathname === "/studio") return chapters[5];
   if (pathname.startsWith("/work/")) return chapters[2];
   const i = chapters.findIndex((c) => c.href === pathname);

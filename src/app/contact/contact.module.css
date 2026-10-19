@@ -314,3 +314,15 @@
   padding-block: 12px;
   border-top: 1px solid var(--line);
 }
+
+.consent {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  max-width: 52ch;
+}
+
+.consent a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
