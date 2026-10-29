@@ -11,7 +11,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMeta({
   title: "Studio",
   description:
-    "Monark is a small studio of designers and engineers in Bhopal, India, building AI automation, websites and brands for businesses worldwide.",
+    "Monark is a small studio in Bhopal, India, building custom systems, automation and websites that stop businesses leaking leads, time and money.",
   path: "/studio",
 });
 

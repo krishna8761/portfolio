@@ -1,0 +1,165 @@
+/*
+ * Timeline (keep INTRO_MS in lib/intro.ts in step with the exit delay):
+ *   0.10s → 1.74s  the dot runs the track; a new word lands at each tick (every 0.41s)
+ *   1.74s          last tick and "Paid." turn signal
+ *   2.20s → 3.10s  the panel lifts away
+ */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--bg);
+  color: var(--fg);
+  animation: lift 0.9s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
+}
+
+:global(.no-intro) .loader {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+}
+
+.inner {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--margin) + 4px) var(--margin) calc(var(--margin) + 8px);
+  animation: drift 0.9s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
+}
+
+.top,
+.ends {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stage {
+  display: inline-flex;
+  line-height: 1.3;
+}
+
+/* ── Rolling stacks: one line visible, stepped to each stage.
+   Lines are 1.3em tall so a descender never shows above the next word. ── */
+.mask {
+  display: inline-block;
+  height: 1.3em;
+  line-height: 1.3;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  animation: roll 2s 0.1s both;
+}
+
+.stack > span {
+  display: block;
+  height: 1.3em;
+  white-space: nowrap;
+}
+
+.word {
+  align-self: center;
+  font-family: var(--f-sans);
+  font-size: clamp(3rem, 0.4rem + 11vw, 10.5rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.word .stack > span:last-child {
+  animation: signal 0.3s 1.74s both;
+}
+
+/* ── Track: the lead travels from enquiry to revenue ── */
+.track {
+  position: relative;
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 14px;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--fg);
+  transform-origin: left;
+  animation: grow 1.64s linear 0.1s both;
+}
+
+.tick {
+  position: absolute;
+  top: -4px;
+  width: 1px;
+  height: 9px;
+  background: var(--line);
+  animation: lit 0.2s both;
+}
+
+.run {
+  position: absolute;
+  inset: 0;
+  animation: run 1.64s linear 0.1s both;
+}
+
+.dot {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fg);
+  animation: signal-bg 0.3s 1.74s both;
+}
+
+@keyframes roll {
+  0%, 14% { transform: translateY(0); }
+  22%, 34% { transform: translateY(-1.3em); }
+  42%, 54% { transform: translateY(-2.6em); }
+  62%, 74% { transform: translateY(-3.9em); }
+  82%, 100% { transform: translateY(-5.2em); }
+}
+
+@keyframes grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes run {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes lit {
+  to { background: var(--fg); }
+}
+
+@keyframes signal {
+  to { color: var(--signal); }
+}
+
+@keyframes signal-bg {
+  to { background: var(--signal); }
+}
+
+@keyframes lift {
+  to {
+    clip-path: inset(0 0 100% 0);
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes drift {
+  to {
+    transform: translateY(-6vh);
+    opacity: 0;
+  }
+}

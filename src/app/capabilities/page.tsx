@@ -10,7 +10,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMeta({
   title: "Capabilities",
   description:
-    "Operations and automation, digital platforms, brand and interface — plus twelve everyday tasks your business can stop doing by hand.",
+    "Lead capture and follow-up, custom systems and automation, and websites that sell, plus twelve everyday tasks your business can stop doing by hand.",
   path: "/capabilities",
 });
 
@@ -22,11 +22,11 @@ export default function Capabilities() {
       <section className={`${s.top} wrap`}>
         <Breadcrumbs trail={[{ name: "Capabilities", path: "/capabilities" }]} />
         <h1 className={`${s.title} t-display`} data-lines>
-          We don&apos;t sell websites. We sell back <span className="t-serif">your week.</span>
+          We don&apos;t sell software. We stop <span className="t-serif">the leaks.</span>
         </h1>
         <p className={`${s.intro} t-lead`} data-fade>
-          Three practices under one roof. Most engagements use two of them: a system that removes the work, and an
-          interface people actually want to use.
+          Three practices, one job: make sure the leads, hours and money your business earns stay in it. Every system
+          is custom, and uses AI only where it does the job better.
         </p>
       </section>
 

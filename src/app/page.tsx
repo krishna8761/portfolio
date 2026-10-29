@@ -22,14 +22,13 @@ const strip: StripItem[] = [
 
 export const metadata: Metadata = pageMeta({
   description:
-    "Monark Studio builds AI automation, websites and brand systems that give businesses their hours back. Fixed USD pricing. Book a free 20-minute call.",
+    "Monark Studio builds custom systems that capture every lead, follow up automatically and cut manual work, so your business stops leaking money.",
   path: "/",
 });
 
 export default function Home() {
   const pick = (slug: string) => projects.find((p) => p.slug === slug)!;
-  // Lead with the systems — that's the positioning — then the sites.
-  const [a, b, c, d] = ["choukhatt", "ai-receptionist", "design-to-order", "nixiv"].map(pick);
+  const [a, b, c, d] = ["choukhatt", "rezzzor", "design-to-order", "nixiv"].map(pick);
   const diagnostic = engagements[0];
 
   return (
@@ -39,16 +38,16 @@ export default function Home() {
         <div className={`${s.heroText} wrap grid`}>
           <span className={s.dot} aria-hidden />
           <h1 className={s.heroLeft} data-fade>
-            Everything your{" "}
+            Every lead your{" "}
             <br />
-            business runs on
+            business earns
           </h1>
           <p className={s.heroMid} data-fade data-delay="0.1">
-            Monark is an independent studio building the systems, websites and brands that give businesses their hours
-            back — design, engineering and AI under one roof.
+            Monark builds custom systems that catch every enquiry, follow up on their own and take the manual work off
+            your team, so the leads, hours and money you already earn stop leaking. AI where it helps, never for show.
           </p>
           <p className={s.heroRight} data-fade data-delay="0.2">
-            Built right.
+            Captured.
           </p>
         </div>
         <div className={s.heroCta} data-fade data-delay="0.3">
@@ -91,11 +90,11 @@ export default function Home() {
           <div className={`${s.leaksHead} grid`}>
             <Label n="02" className={s.leaksLabel}>What we fix</Label>
             <h2 className={`${s.leaksTitle} t-h2`} data-lines>
-              Every business leaks hours. Most never see where.
+              Every business leaks leads, time and money. Most never see where.
             </h2>
             <p className={`${s.leaksCopy} muted`} data-fade>
-              These are the five leaks we&apos;re asked to fix most. Figures are typical weekly savings for a team of
-              five to twenty — the Diagnostic tells you yours.
+              A leak doesn&apos;t look like a loss. It looks like a normal week. These are the five we&apos;re asked to
+              fix most. Figures are typical for a team of five to twenty; the Diagnostic tells you yours.
             </p>
           </div>
 

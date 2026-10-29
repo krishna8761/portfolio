@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, ScrollTrigger, SplitText, useGSAP, MOTION_OK, DESKTOP } from "@/lib/gsap";
 import { isLowPower } from "@/lib/perf";
+import { takeIntroDelay } from "@/lib/intro";
 
 /**
  * Rendered at the end of every page. Because it lives inside the page segment, its
@@ -24,6 +25,8 @@ export default function Motion() {
       const el = marker.current!.closest("main")!;
       const q = <T extends Element = HTMLElement>(s: string) => gsap.utils.toArray<T>(s, el);
       const mm = gsap.matchMedia();
+      // On first load the intro covers the page; hold the page reveal until it lifts.
+      const wait = takeIntroDelay();
 
       mm.add(
         { motion: MOTION_OK, desktop: DESKTOP, reduce: "(prefers-reduced-motion: reduce)" },
@@ -42,7 +45,7 @@ export default function Motion() {
           const inView = (t: Element) => t.getBoundingClientRect().top < window.innerHeight * 0.92;
 
           // Page enter
-          gsap.fromTo(el, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.8 * k, ease: "power3.out" });
+          gsap.fromTo(el, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.8 * k, delay: wait, ease: "power3.out" });
 
           q("[data-lines]").forEach((node) => {
             const delay = Number(node.dataset.delay ?? 0);
@@ -57,7 +60,7 @@ export default function Motion() {
                   yPercent: 110,
                   duration: 1.1 * k,
                   stagger: 0.07,
-                  delay: inView(node) ? 0.15 + delay : 0,
+                  delay: inView(node) ? wait + 0.15 + delay : 0,
                   scrollTrigger: inView(node) ? undefined : { trigger: node, start: "top 88%", once: true },
                 });
               },
@@ -72,7 +75,7 @@ export default function Motion() {
               y: 20,
               duration: 0.9 * k,
               stagger: 0.08,
-              delay: inView(node) ? 0.35 + Number(node.dataset.delay ?? 0) : 0,
+              delay: inView(node) ? wait + 0.35 + Number(node.dataset.delay ?? 0) : 0,
               scrollTrigger: inView(node) ? undefined : { trigger: node, start: "top 90%", once: true },
             });
           });
@@ -88,7 +91,7 @@ export default function Motion() {
             }
             const img = node.querySelector("img, video");
             const tl = gsap.timeline({
-              delay: inView(node) ? 0.2 : 0,
+              delay: inView(node) ? wait + 0.2 : 0,
               scrollTrigger: inView(node) ? undefined : { trigger: node, start: "top 90%", once: true },
             });
             tl.fromTo(node, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.4 * k, ease: "expo.inOut" });

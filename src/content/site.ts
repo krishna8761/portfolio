@@ -51,7 +51,7 @@ export const nav = [
 ];
 
 /** Date shown at the top of the Privacy Policy and Terms. Update it whenever either page changes. */
-export const LEGAL_UPDATED = "19 October 2026";
+export const LEGAL_UPDATED = "30 October 2026";
 
 export const legalLinks = [
   { href: "/privacy", label: "Privacy" },
@@ -106,31 +106,6 @@ const video = (slug: string): Media => ({ kind: "video", slug });
 
 export const projects: Project[] = [
   {
-    slug: "ai-receptionist",
-    title: "AI Receptionist",
-    kind: "System",
-    status: "Built at Zidio Development", // TODO confirm attribution
-    sector: "Voice AI · Front desk",
-    year: 2026,
-    disciplines: ["Automation"],
-    scope: ["Voice agent", "Calendar booking", "WhatsApp messaging"],
-    summary: "A voice agent that answers inbound calls, takes the details and books the meeting — then confirms on WhatsApp.",
-    media: { kind: "flow", steps: ["Inbound call", "Voice agent answers", "Collects name, need & time", "Books the slot", "WhatsApp confirmation"] },
-    problem:
-      "Service businesses lose bookings in the gaps: calls during busy hours, after closing, or while the one person who answers the phone is with a customer. Every missed call is a booking that went somewhere else.",
-    interventions: [
-      { title: "Answers every call", body: "A natural-sounding voice agent picks up inbound calls and handles the conversation the way a receptionist would." },
-      { title: "Structured intake", body: "It asks for the caller's name, what they need and when they're free, and writes it down as a clean record." },
-      { title: "Books the meeting", body: "The agent checks availability and books the slot directly, so there's nothing left to call back about." },
-      { title: "Confirms on WhatsApp", body: "The caller gets a WhatsApp confirmation with the details moments after hanging up." },
-    ],
-    specs: [
-      { value: "24/7", label: "Call answering" },
-      { value: "0", label: "Manual call-backs" },
-      { value: "2", label: "Channels: voice & WhatsApp" },
-    ],
-  },
-  {
     slug: "design-to-order",
     title: "Design-to-Order",
     kind: "System",
@@ -156,30 +131,6 @@ export const projects: Project[] = [
       { value: "6", label: "Steps, one flow" },
       { value: "1", label: "Board shared, visit booked" },
       { value: "0", label: "Manual follow-ups" },
-    ],
-  },
-  {
-    slug: "feedback-clustering",
-    title: "Feedback Clustering",
-    kind: "System",
-    status: "Built at Zidio Development",
-    sector: "AI · Customer insight",
-    year: 2026,
-    disciplines: ["Automation"],
-    scope: ["AI clustering", "Theme summaries", "Insight dashboard"],
-    summary: "An AI system that reads free-text feedback and groups it by meaning, so a team reads patterns instead of rows.",
-    media: { kind: "flow", steps: ["Feedback from every source", "AI reads each response", "Grouped by meaning", "Themes summarised", "Dashboard for the team"] },
-    problem:
-      "Feedback arrives as free text: surveys, reviews, support tickets. Reading it by hand is slow, so most of it is never read, and the patterns that matter stay buried.",
-    interventions: [
-      { title: "One intake", body: "Responses from different sources are collected into one place in one format." },
-      { title: "Clustering by meaning", body: "Each response is understood by meaning, not keywords, and grouped with the ones that say the same thing." },
-      { title: "Themes, not rows", body: "Every cluster gets a plain-language summary and a size, so the biggest issues rise to the top." },
-    ],
-    specs: [
-      { value: "AI", label: "Grouped by meaning" },
-      { value: "1", label: "Dashboard, every source" },
-      { value: "0", label: "Spreadsheets to read" },
     ],
   },
   {
@@ -343,11 +294,11 @@ export const projects: Project[] = [
 
 // Typical figures from comparable engagements — present them as typical, never as guarantees.
 export const leaks = [
-  { problem: "Leads go cold in the inbox", fix: "Qualify, route and reply within two minutes", result: "~10 hrs / week" },
+  { problem: "Enquiries answered hours late", fix: "Every enquiry captured and answered in seconds, on web, WhatsApp and email", result: "Replies in seconds" },
+  { problem: "Leads nobody follows up", fix: "Follow-ups that run themselves until the lead replies or buys", result: "~10 hrs / week" },
+  { problem: "Quotes typed by hand, sent late", fix: "Quotes built from the enquiry and sent the same day", result: "~5 hrs / week" },
+  { problem: "Past customers never asked back", fix: "Automatic re-order, rebooking and review requests", result: "Repeat revenue" },
   { problem: "Invoices chased by hand", fix: "Reminders and reconciliation that run themselves", result: "~6 hrs / week" },
-  { problem: "Reports rebuilt every Monday", fix: "Live dashboards fed from the source", result: "~4 hrs / week" },
-  { problem: "A website that only looks expensive", fix: "A site built around what buyers ask before they buy", result: "Fewer, better calls" },
-  { problem: "Onboarding lives in someone's head", fix: "Guided flows, documents and checklists", result: "Days, not weeks" },
 ];
 
 /* ───────────────────────── Capabilities ───────────────────────── */
@@ -355,21 +306,21 @@ export const leaks = [
 export const practices = [
   {
     n: "01",
-    title: "Operations & Automation",
-    promise: "We find the repetitive work in your business and give it to software.",
-    items: ["AI agents for support & sales", "Workflow automation", "Internal tools & dashboards", "CRM, ERP & API integrations", "Document & data processing"],
+    title: "Lead Capture & Follow-up",
+    promise: "Every enquiry caught, answered and followed up, so the leads you already pay for turn into customers.",
+    items: ["Lead capture on web, WhatsApp & email", "Instant replies", "Automatic follow-up sequences", "CRM set-up & lead routing", "Booking & quoting flows"],
   },
   {
     n: "02",
-    title: "Digital Platforms",
-    promise: "Websites and products that do a job, not just hold a logo.",
-    items: ["Marketing sites", "E-commerce", "Web applications", "Customer portals", "Headless CMS"],
+    title: "Custom Systems & Automation",
+    promise: "We find the repetitive work in your business and hand it to software. AI only where it earns its place.",
+    items: ["Workflow automation", "Internal tools & dashboards", "CRM, ERP & API integrations", "Document & data processing", "AI agents, where they help"],
   },
   {
     n: "03",
-    title: "Brand & Interface",
-    promise: "A visual system people trust before they read a word.",
-    items: ["Identity systems", "Art direction", "Product & interface design", "Design systems", "Campaign creative"],
+    title: "Websites that Sell",
+    promise: "Sites built to capture and convert, not just hold a logo.",
+    items: ["Marketing sites", "E-commerce", "Customer portals", "Web applications", "Brand & interface design"],
   },
 ];
 
@@ -451,7 +402,7 @@ export const engagements = [
     price: "from $2,500",
     unit: "per project",
     note: "Fixed price, agreed in the Blueprint. No hourly billing.",
-    includes: ["Automation systems — from $2,500", "Websites & e-commerce — from $4,500", "Web apps & portals — from $9,000", "Brand systems — from $3,000"],
+    includes: ["Lead & automation systems — from $2,500","Websites & e-commerce — from $4,500", "Web apps & portals — from $9,000", "Brand systems — from $3,000"],
   },
   {
     n: "03",
@@ -483,7 +434,7 @@ export const principles = [
 export const founder = {
   name: "Krishna Soni",
   role: "Founder & Studio Lead",
-  bio: "Krishna started Monark after watching small businesses pay for software that looked good and changed nothing. Every engagement is led by Krishna personally — from the first diagnostic call to the last handover.",
+  bio: "Krishna started Monark after watching small businesses lose customers to slow replies and forgotten follow-ups, while paying for software that looked good and changed nothing. Every engagement is led by Krishna personally — from the first diagnostic call to the last handover.",
   image: { src: "/studio/founder.jpg", w: 1254, h: 1254, alt: "Portrait of Krishna Soni" },
 };
 
@@ -491,12 +442,12 @@ export const founder = {
 
 export const brief = {
   pains: [
-    "Too much manual work",
     "Leads slip through",
+    "Slow replies and follow-ups",
+    "Too much manual work",
     "Website doesn't convert",
     "Tools don't talk to each other",
-    "Brand looks smaller than we are",
-    "Need a product built",
+    "Need a custom system built",
   ],
   budgets: ["Under $2,500", "$2,500 – $5,000", "$5,000 – $15,000", "$15,000+", "Not sure yet"],
   timelines: ["As soon as possible", "Within 1–2 months", "This quarter", "Just exploring"],
