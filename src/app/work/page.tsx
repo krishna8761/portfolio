@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = pageMeta({
   title: "Work",
   description:
-    "Selected work by Monark Studio: AI automation systems like an AI receptionist and feedback clustering, plus e-commerce and brand websites.",
+    "Selected work by Monark Studio: custom systems that capture leads and run follow-ups, plus e-commerce and booking websites built to sell.",
   path: "/work",
 });
 

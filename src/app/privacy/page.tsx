@@ -23,7 +23,7 @@ const sections: LegalSection[] = [
       <>
         <p>
           {studio.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a studio based in {studio.city}, led by Krishna Soni. We
-          build AI automation, websites and brand systems for businesses. We decide how and why the personal data
+          build custom systems, automation and websites for businesses. We decide how and why the personal data
           described here is used.
         </p>
         <p>Questions about privacy go to {email}.</p>

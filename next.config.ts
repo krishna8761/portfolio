@@ -24,6 +24,8 @@ const nextConfig: NextConfig = {
       { source: "/pricing", destination: "/engagements", permanent: true },
       { source: "/about", destination: "/studio", permanent: true },
       { source: "/start", destination: "/contact", permanent: true },
+      // Case studies that were taken down.
+      { source: "/work/:slug(ai-receptionist|feedback-clustering)", destination: "/work", permanent: true },
     ];
   },
 

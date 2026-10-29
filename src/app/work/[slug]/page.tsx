@@ -25,7 +25,7 @@ export async function generateMetadata(props: PageProps<"/work/[slug]">): Promis
   const p = projects.find((x) => x.slug === slug);
   if (!p) return {};
   return pageMeta({
-    title: `${p.title} — ${p.kind === "System" ? "AI automation" : "Website"} case study`,
+    title: `${p.title} — ${p.kind === "System" ? "Custom system" : "Website"} case study`,
     // Keep within ~155 characters so search results show it whole.
     description: clip(`${p.summary} ${p.sector}, ${p.year}.`, 155),
     path: `/work/${p.slug}`,

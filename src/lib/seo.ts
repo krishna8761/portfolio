@@ -22,7 +22,7 @@ export function pageMeta({
   image?: string;
 }): Metadata {
   const url = abs(path);
-  const ogTitle = title ? `${title} — ${studio.name}` : `${studio.name} — AI automation, websites & brand studio`;
+  const ogTitle = title ? `${title} — ${studio.name}` : `${studio.name} — Custom systems for leads, follow-up & automation`;
   return {
     ...(title ? { title } : {}),
     description,

@@ -8,6 +8,8 @@ import JsonLd from "@/components/JsonLd";
 import { SITE_URL, abs } from "@/lib/seo";
 import { studio } from "@/content/site";
 import { lowPowerScript } from "@/lib/perf";
+import { introScript } from "@/lib/intro";
+import Loader from "@/components/Loader";
 import "./globals.css";
 
 const host = Host_Grotesk({ variable: "--font-host", subsets: ["latin"], weight: "variable" });
@@ -16,9 +18,9 @@ const serif = Newsreader({ variable: "--font-serif", subsets: ["latin"], style: 
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Monark Studio — AI automation, websites & brand studio", template: "%s — Monark Studio" },
+  title: { default: "Monark Studio — Custom systems for leads, follow-up & automation", template: "%s — Monark Studio" },
   description:
-    "Monark Studio finds the hours your business loses to manual work and builds the systems, websites and brands that win them back.",
+    "Monark Studio finds where your business leaks leads, time and money, and builds the custom systems, automation and websites that close it.",
   applicationName: "Monark Studio",
   authors: [{ name: "Krishna Soni", url: abs("/studio") }],
   creator: "Monark Studio",
@@ -37,13 +39,13 @@ const organization = {
   name: studio.name,
   url: abs("/"),
   email: studio.email,
-  description: "AI automation, websites and brand systems for businesses that want their hours back.",
+  description: "Custom systems, automation and lead capture for businesses that are losing leads, time and money.",
   foundingDate: String(studio.founded),
   founder: { "@type": "Person", name: "Krishna Soni" },
   address: { "@type": "PostalAddress", addressLocality: "Bhopal", addressRegion: "Madhya Pradesh", addressCountry: "IN" },
   areaServed: "Worldwide",
   currenciesAccepted: "USD",
-  knowsAbout: ["AI automation", "Workflow automation", "Web development", "E-commerce", "Brand identity", "UI design"],
+  knowsAbout: ["Lead capture", "Workflow automation", "Custom software", "CRM integration", "AI automation", "Web development", "E-commerce"],
   sameAs: studio.social.map((s) => s.href),
 };
 
@@ -59,9 +61,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${host.variable} ${mono.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: lowPowerScript + motionGuard }} />
+        <script dangerouslySetInnerHTML={{ __html: lowPowerScript + introScript + motionGuard }} />
       </head>
       <body>
+        <Loader />
         <JsonLd data={organization} />
         <SmoothScroll />
         <Header />
