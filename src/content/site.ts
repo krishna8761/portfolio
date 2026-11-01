@@ -4,9 +4,10 @@
 
 export const studio = {
   name: "Monark Studio",
-  email: "krishna@monarkstudio.in",
+  // krishna@monarkstudio.in has no mailbox yet (no MX records); switch back once it receives mail.
+  email: "ks3920933@gmail.com",
   // Every booking is copied to these inboxes.
-  notify: ["krishna@monarkstudio.in", "ks3920933@gmail.com"],
+  notify: ["ks3920933@gmail.com"],
   phone: "+91 88172 55593",
   city: "Bhopal, India",
   timezone: "Asia/Kolkata",
